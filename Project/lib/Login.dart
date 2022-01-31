@@ -1,8 +1,11 @@
-// ignore_for_file: deprecated_member_use, file_names
+// ignore_for_file: deprecated_member_use, file_names, prefer_const_constructors, missing_return
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'Home.dart';
 import 'Registration.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -15,6 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -77,11 +82,12 @@ class _LoginScreenState extends State<LoginScreen> {
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.blueAccent[200],
+      color: Colors.pink,
       child: MaterialButton(
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          minWidth: MediaQuery.of(context).size.width,
-          onPressed: () {},
+          onPressed: () {
+            singIn(emailController.text, passwordController.text);
+          },
           child: Text(
             "Login",
             textAlign: TextAlign.center,
@@ -107,20 +113,44 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                         height: 200,
                         child: Image.asset(
-                          "images/Logo.jpg",
+                          "images/Logo.png",
                           fit: BoxFit.contain,
                         )),
-                    SizedBox(height: 45),
+                    SizedBox(height: 25),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Login",
+                            style: GoogleFonts.oswald(
+                                fontSize: 55, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Please Sign in to continue",
+                            style: GoogleFonts.lato(fontSize: 15),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 25),
                     emailField,
                     SizedBox(height: 25),
                     passwordField,
                     SizedBox(height: 35),
-                    loginButton,
-                    SizedBox(height: 15),
+                    Align(alignment: Alignment.topRight, child: loginButton),
+                    SizedBox(height: 80),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text("Don't have an account? "),
+                          Text(
+                            "Don't have an account? ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -132,9 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Text(
                               "SignUp",
                               style: TextStyle(
-                                  color: Colors.redAccent,
+                                  color: Colors.pink,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 15),
+                                  fontSize: 20),
                             ),
                           )
                         ])
@@ -146,5 +176,20 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void singIn(String email, String password) async {
+    if (_formKey.currentState.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((user_id) => {
+                Fluttertoast.showToast(msg: "Login Successful"),
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => Home()))
+              })
+          .catchError((error) {
+        Fluttertoast.showToast(msg: error.message);
+      });
+    }
   }
 }
