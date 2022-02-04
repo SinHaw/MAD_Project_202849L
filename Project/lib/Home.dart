@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
                 Tab(icon: Icon(Icons.directions_bike)),
               ],
             ),
-            title: Text('Tabbed Application'),
+            title: Text('Home'),
           ),
           body: TabBarView(
             children: [
