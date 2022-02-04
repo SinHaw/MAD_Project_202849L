@@ -1,6 +1,8 @@
 // ignore_for_file: file_names, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/About.dart';
+import 'package:flutter_application_1/Activity.dart';
 import 'package:flutter_application_1/Profile.dart';
 
 class Home extends StatelessWidget {
@@ -13,19 +15,19 @@ class Home extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.amber,
             bottom: TabBar(
+              indicatorColor: Colors.pink,
               tabs: [
                 Tab(
-                    icon: Icon(
-                  Icons.directions_car,
-                  color: Colors.yellow,
-                )),
+                  text: "Profile",
+                ),
                 Tab(
-                    icon: Icon(
-                  Icons.directions_transit,
-                  color: Colors.greenAccent,
-                )),
-                Tab(icon: Icon(Icons.directions_bike)),
+                  text: "Activity",
+                ),
+                Tab(
+                  text: "About Us",
+                ),
               ],
             ),
             title: Text('Home'),
@@ -33,8 +35,8 @@ class Home extends StatelessWidget {
           body: TabBarView(
             children: [
               Profile(),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
+              Activity(),
+              About(),
             ],
           ), //TabBarView
         ), //Scaffold

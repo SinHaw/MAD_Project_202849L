@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Login.dart';
 import 'package:flutter_application_1/model/user_model.dart';
 
+import 'ChangeProfile.dart';
+
 class Profile extends StatefulWidget {
   Profile({Key key}) : super(key: key);
 
@@ -32,16 +34,64 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Column(children: [
-        Text("${loggedInUser.name}"),
-        ActionChip(
-          label: Text("logout"),
-          onPressed: () {
-            logout(context);
-          },
-        )
-      ])),
+      body: Container(
+
+          // ignore: prefer_const_literals_to_create_immutables
+          child: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Container(
+            width: 200,
+            height: 200,
+            child: CircleAvatar(
+              backgroundImage: AssetImage('images/superhero.jpg'),
+            ),
+          ),
+          SizedBox(height: 25),
+          Text(
+            "${loggedInUser.name}",
+            style: TextStyle(fontSize: 30),
+          ),
+          SizedBox(height: 25),
+          Text(
+            "${loggedInUser.email}",
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(height: 25),
+          ActionChip(
+            backgroundColor: Colors.pink,
+            label: Container(
+              height: 20,
+              width: 120,
+              child: Text(
+                "Change Details",
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ChangeProfile()));
+            },
+          ),
+          SizedBox(height: 25),
+          ActionChip(
+            backgroundColor: Colors.pink,
+            label: Container(
+              height: 20,
+              width: 60,
+              child: Text(
+                "Logout",
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
+            ),
+            onPressed: () {
+              logout(context);
+            },
+          ),
+        ]),
+      )),
     );
   }
 

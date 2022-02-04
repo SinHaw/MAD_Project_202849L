@@ -55,8 +55,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
           ),
         ));
 
-    //second name field
-
     //email field
     final emailField = TextFormField(
         autofocus: false,
