@@ -85,7 +85,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
-            register(NameEditingController.text, emailEditingController.text);
+            change();
           },
           child: Text(
             "Update",
@@ -118,7 +118,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
         ));
   }
 
-  void register(String name, String email) async {
+  void change() async {
     if (_formKey.currentState.validate()) {
       updateDetails().catchError((error) {
         Fluttertoast.showToast(msg: error.message);
@@ -133,7 +133,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
     FirebaseFirestore firebase = FirebaseFirestore.instance;
     User user = _auth.currentUser;
     userModel UserModel = userModel();
-    UserModel.email = user.email;
+    UserModel.email = emailEditingController.text;
     UserModel.name = NameEditingController.text;
     UserModel.user_id = user.uid;
 
