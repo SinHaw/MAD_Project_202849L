@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/About.dart';
 import 'package:flutter_application_1/Activity.dart';
+import 'package:flutter_application_1/Alarm.dart';
 import 'package:flutter_application_1/Profile.dart';
 
 class Home extends StatelessWidget {
@@ -12,7 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.amber,
@@ -26,6 +27,9 @@ class Home extends StatelessWidget {
                   text: "Activity",
                 ),
                 Tab(
+                  text: "Alarm",
+                ),
+                Tab(
                   text: "About Us",
                 ),
               ],
@@ -36,6 +40,7 @@ class Home extends StatelessWidget {
             children: [
               Profile(),
               Activity(),
+              Alarm(),
               About(),
             ],
           ), //TabBarView

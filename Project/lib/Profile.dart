@@ -35,7 +35,6 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-
           // ignore: prefer_const_literals_to_create_immutables
           child: Padding(
         padding: const EdgeInsets.all(30.0),
