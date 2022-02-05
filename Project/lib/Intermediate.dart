@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'DetailsPage.dart';
 // ignore_for_file: prefer_const_constructors
 
-void main() => runApp(Beginner());
+void main() => runApp(Intermediate());
 
-class Beginner extends StatelessWidget {
+class Intermediate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Beginner",
+            "Intermediate",
             style: TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.transparent,
@@ -35,50 +35,65 @@ class Beginner extends StatelessWidget {
 class MyCustomWidget extends StatelessWidget {
   final List<String> img = <String>[
     'JumpingJack',
-    'Crunches',
-    'RussianTwist',
-    'MountainClimber',
     'heelTouch',
-    'LegRaise',
-    'Plank',
     'Crunches',
-    'RussianTwist',
     'MountainClimber',
+    'sideBridgeLeft',
+    'sideBridgeRight',
+    'buttBridge',
+    'bicycleCrunches',
+    'vUp',
     'heelTouch',
-    'LegRaise',
+    'Crunches',
     'Plank',
-    'CobraStretch'
+    'CrossoverCrunches',
+    'LegRaise',
+    'bicycleCrunches',
+    'pushup',
+    'SidePlankLeft',
+    'SidePlankRight',
+    'CobraStretch',
   ];
   final List<String> name = <String>[
     'JUMPING JACKS',
-    'ABDOMINAL CRUNCHES',
-    'RUSSIAN TWIST ',
-    'MOUNTAIN CLIMBER',
     'HEEL TOUCH',
-    'LEG RAISES',
-    'PLANK',
-    'ABDOMINAL CRUNCHES',
-    'RUSSIAN TWIST',
+    'CROSSOVER CRUNCH',
     'MOUNTAIN CLIMBER',
+    'SIDE BRIDGES LEFT',
+    'SIDE BRIGHES RIGHT',
+    'BUTT BRIDGE',
+    'BICYCLE CRUNCHES',
+    'V-UP',
     'HEEL TOUCH',
-    'LEG RAISES',
+    'ADOMINHAL CRUNCHES',
     'PLANK',
-    'COBRA STRETCH',
+    'CROSSOVER CRUNCHES',
+    'LEG RAISES',
+    'BICYCLE CRUNCHES',
+    'PUSH UP AND ROTATION',
+    'SIDE PlANK LEFT',
+    'SIDE PLANK RIGHT',
+    'COBRA STRETCH'
   ];
   final List<String> amount = <String>[
-    '00:20',
-    'x16',
-    'x16',
-    'x20',
-    'x20',
-    'x16',
-    '00:20',
-    'x12',
-    'x32',
-    'x12',
-    'x20',
-    'x14',
     '00:30',
+    'x26',
+    'x20',
+    'x20',
+    'x12',
+    'x12',
+    'x20',
+    'x20',
+    'x20',
+    'x26',
+    'x20',
+    '00:30',
+    'x20',
+    'x16',
+    'x20',
+    'x20',
+    '00:20',
+    '00:20',
     '00:30'
   ];
   @override

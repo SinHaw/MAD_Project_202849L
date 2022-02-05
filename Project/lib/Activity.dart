@@ -1,6 +1,8 @@
 // ignore_for_file: annotate_overrides, avoid_unnecessary_containers, prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Advanced.dart';
+import 'package:flutter_application_1/Intermediate.dart';
 
 import 'Beginner.dart';
 
@@ -29,7 +31,7 @@ class Activity extends StatelessWidget {
                 title: Text('Intermediate'),
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Beginner()));
+                      MaterialPageRoute(builder: (context) => Intermediate()));
                 }),
           ),
           Card(
@@ -38,7 +40,7 @@ class Activity extends StatelessWidget {
               title: Text('Advanced'),
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Beginner()));
+                    MaterialPageRoute(builder: (context) => Advanced()));
               },
             ),
           ), // ListTitle
