@@ -47,18 +47,28 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           SizedBox(height: 25),
-          Text(
-            "${loggedInUser.name}",
-            style: TextStyle(fontSize: 30),
+          Row(
+            children: [
+              Icon(Icons.person),
+              Text(
+                "${loggedInUser.name}",
+                style: TextStyle(fontSize: 30),
+              ),
+            ],
           ),
           SizedBox(height: 25),
-          Text(
-            "${loggedInUser.email}",
-            style: TextStyle(fontSize: 20),
+          Row(
+            children: [
+              Icon(Icons.email),
+              Text(
+                "${loggedInUser.email}",
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
           ),
           SizedBox(height: 25),
           ActionChip(
-            backgroundColor: Colors.pink,
+            backgroundColor: Colors.black,
             label: Container(
               height: 20,
               width: 120,
@@ -75,7 +85,7 @@ class _ProfileState extends State<Profile> {
           ),
           SizedBox(height: 25),
           ActionChip(
-            backgroundColor: Colors.pink,
+            backgroundColor: Colors.black,
             label: Container(
               height: 20,
               width: 60,

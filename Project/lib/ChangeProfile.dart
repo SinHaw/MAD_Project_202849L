@@ -80,7 +80,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
     final update = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.pink,
+      color: Colors.black,
       child: MaterialButton(
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
@@ -106,21 +106,27 @@ class _ChangeProfileState extends State<ChangeProfile> {
             },
           ),
         ),
-        body: Form(
-          key: _formKey,
-          child: Column(children: <Widget>[
-            NameField,
-            SizedBox(height: 20),
-            emailField,
-            SizedBox(height: 15),
-            update,
-          ]),
+        body: Padding(
+          padding: const EdgeInsets.all(36.0),
+          child: Form(
+            key: _formKey,
+            child: Column(children: <Widget>[
+              NameField,
+              SizedBox(height: 20),
+              emailField,
+              SizedBox(height: 15),
+              update,
+            ]),
+          ),
         ));
   }
 
   void change() async {
     if (_formKey.currentState.validate()) {
-      updateDetails().catchError((error) {
+      user
+          .updateEmail(emailEditingController.text)
+          .then((updateDetails()))
+          .catchError((error) {
         Fluttertoast.showToast(msg: error.message);
       });
     }

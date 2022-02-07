@@ -28,9 +28,12 @@ class _AlarmState extends State<Alarm> {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
                     height: 60,
@@ -69,7 +72,7 @@ class _AlarmState extends State<Alarm> {
                     ),
                   ),
                   SizedBox(
-                    width: 20,
+                    width: 10,
                   ),
                   Text("24 Hour Format")
                 ],
@@ -77,52 +80,59 @@ class _AlarmState extends State<Alarm> {
               SizedBox(
                 height: 10,
               ),
-              Row(
-                children: [
-                  Container(
-                    decoration: new BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: new BorderRadius.circular(8.0)),
-                    child: TextButton(
-                      child: Text(
-                        'Create Alarm',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: new BoxDecoration(
+                          border: Border.all(color: Colors.red, width: 3),
+                          color: Colors.black,
+                          borderRadius: new BorderRadius.circular(8.0)),
+                      child: TextButton(
+                        child: Text(
+                          'Create Alarm',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        onPressed: () {
+                          int hour;
+                          int min;
+                          hour = int.parse(hourEditingController.text);
+                          min = int.parse(minEditingController.text);
+                          FlutterAlarmClock.createAlarm(hour, min);
+                          hourEditingController.clear();
+                          minEditingController.clear();
+                          Fluttertoast.showToast(msg: "Alarm Created");
+                        },
                       ),
-                      onPressed: () {
-                        int hour;
-                        int min;
-                        hour = int.parse(hourEditingController.text);
-                        min = int.parse(minEditingController.text);
-                        FlutterAlarmClock.createAlarm(hour, min);
-                        hourEditingController.clear();
-                        minEditingController.clear();
-                        Fluttertoast.showToast(msg: "Alarm Created");
-                      },
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    decoration: new BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: new BorderRadius.circular(8.0)),
-                    child: TextButton(
-                      child: Text(
-                        'Show Alarm',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: new BoxDecoration(
+                          border: Border.all(color: Colors.red, width: 3),
+                          color: Colors.black,
+                          borderRadius: new BorderRadius.circular(8.0)),
+                      child: TextButton(
+                        child: Text(
+                          'Show Alarm',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        onPressed: () {
+                          FlutterAlarmClock.showAlarms();
+                        },
                       ),
-                      onPressed: () {
-                        FlutterAlarmClock.showAlarms();
-                      },
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(
-                height: 10,
+                height: 80,
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
                     height: 60,
@@ -142,50 +152,58 @@ class _AlarmState extends State<Alarm> {
                   Text(
                     "Minutes",
                     style: TextStyle(fontSize: 30),
+                  ),
+                  SizedBox(
+                    width: 100,
                   )
                 ],
               ),
               SizedBox(
                 height: 10,
               ),
-              Row(
-                children: [
-                  Container(
-                    decoration: new BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: new BorderRadius.circular(8.0)),
-                    child: TextButton(
-                      child: Text(
-                        'Create Timer',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: new BoxDecoration(
+                          border: Border.all(color: Colors.red, width: 3),
+                          color: Colors.black,
+                          borderRadius: new BorderRadius.circular(8.0)),
+                      child: TextButton(
+                        child: Text(
+                          'Create Timer',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        onPressed: () {
+                          int min;
+                          min = int.parse(timerEditingController.text);
+                          FlutterAlarmClock.createTimer(min * 60);
+                          timerEditingController.clear();
+                          Fluttertoast.showToast(msg: "Timer Created");
+                        },
                       ),
-                      onPressed: () {
-                        int min;
-                        min = int.parse(timerEditingController.text);
-                        FlutterAlarmClock.createTimer(min * 60);
-                        timerEditingController.clear();
-                        Fluttertoast.showToast(msg: "Timer Created");
-                      },
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    decoration: new BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: new BorderRadius.circular(8.0)),
-                    child: TextButton(
-                      child: Text(
-                        'Show Timer',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: new BoxDecoration(
+                          border: Border.all(color: Colors.red, width: 3),
+                          color: Colors.black,
+                          borderRadius: new BorderRadius.circular(8.0)),
+                      child: TextButton(
+                        child: Text(
+                          'Show Timer',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        onPressed: () {
+                          FlutterAlarmClock.showTimers();
+                        },
                       ),
-                      onPressed: () {
-                        FlutterAlarmClock.showTimers();
-                      },
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),

@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
         length: 4,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.amber,
+            backgroundColor: Colors.black,
             bottom: TabBar(
               indicatorColor: Colors.pink,
               tabs: [
