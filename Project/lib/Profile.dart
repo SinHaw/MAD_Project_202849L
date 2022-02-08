@@ -34,6 +34,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       body: Container(
           // ignore: prefer_const_literals_to_create_immutables
           child: Padding(

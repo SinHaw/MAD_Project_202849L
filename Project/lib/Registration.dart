@@ -14,9 +14,6 @@ class RegistrationScreen extends StatefulWidget {
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreen();
-  final _formKey = GlobalKey<FormState>();
-  // editing Controller
-
 }
 
 class _RegistrationScreen extends State<RegistrationScreen> {
@@ -55,7 +52,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
           ),
         ));
 
-    //email field
     final emailField = TextFormField(
         autofocus: false,
         controller: emailEditingController,
@@ -64,7 +60,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
           if (value.isEmpty) {
             return ("Please Enter Your Email");
           }
-          // reg expression for email validation
           if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
               .hasMatch(value)) {
             return ("Please Enter a valid email");
@@ -84,7 +79,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
           ),
         ));
 
-    //password field
     final passwordField = TextFormField(
         autofocus: false,
         controller: passwordEditingController,
@@ -111,7 +105,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
           ),
         ));
 
-    //confirm password field
     final confirmPasswordField = TextFormField(
         autofocus: false,
         controller: confirmPasswordEditingController,
@@ -136,7 +129,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
           ),
         ));
 
-    //signup button
     final signUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -164,7 +156,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.blueAccent[200]),
           onPressed: () {
-            // passing this to our root
             Navigator.of(context).pop();
           },
         ),

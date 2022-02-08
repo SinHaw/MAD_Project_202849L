@@ -23,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //email field
     final emailField = TextFormField(
         autofocus: false,
         controller: emailController,
@@ -32,7 +31,6 @@ class _LoginScreenState extends State<LoginScreen> {
           if (value.isEmpty) {
             return ("Please Enter Your Email");
           }
-          // reg expression for email validation
           if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
               .hasMatch(value)) {
             return ("Please Enter a valid email");
@@ -52,7 +50,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ));
 
-    //password field
     final passwordField = TextFormField(
         autofocus: false,
         controller: passwordController,

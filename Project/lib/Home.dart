@@ -34,7 +34,6 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
-            title: Text('Home'),
           ),
           body: TabBarView(
             children: [

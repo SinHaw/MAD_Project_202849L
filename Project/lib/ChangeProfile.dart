@@ -96,10 +96,10 @@ class _ChangeProfileState extends State<ChangeProfile> {
     );
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black,
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.blueAccent[200]),
+            icon: Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
               // passing this to our root
               Navigator.of(context).pop();

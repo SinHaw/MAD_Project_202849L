@@ -14,12 +14,12 @@ class Advanced extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "Advanced",
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black,
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.blueAccent[200]),
+            icon: Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
               // passing this to our root
               Navigator.of(context).pop();
@@ -118,6 +118,7 @@ class MyCustomWidget extends StatelessWidget {
                       children: [
                         SizedBox(
                           height: 80,
+                          width: 160,
                           child: Image.asset(
                             "images/" + img[index] + ".jpg",
                             fit: BoxFit.contain,
@@ -125,11 +126,14 @@ class MyCustomWidget extends StatelessWidget {
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Column(children: [
-                              Text(' ${name[index]}'),
-                              Text('${amount[index]}'),
-                            ])
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(' ${name[index]}'),
+                                  Text('${amount[index]}'),
+                                ])
                           ],
                         ),
                         Spacer(),

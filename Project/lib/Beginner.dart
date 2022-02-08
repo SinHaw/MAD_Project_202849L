@@ -14,12 +14,12 @@ class Beginner extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "Beginner",
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black,
           elevation: 0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.blueAccent[200]),
+            icon: Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
               // passing this to our root
               Navigator.of(context).pop();

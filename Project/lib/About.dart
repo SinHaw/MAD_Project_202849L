@@ -12,38 +12,49 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                  height: 200,
-                  child: Image.asset(
-                    "images/Logo.png",
-                    fit: BoxFit.contain,
-                  )),
-              Text(
+      backgroundColor: Colors.grey[200],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+                height: 300,
+                width: 500,
+                child: Image.asset(
+                  "images/Logo.png",
+                  fit: BoxFit.fill,
+                )),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: Text(
                 "Run and Fun ",
                 style:
                     GoogleFonts.lato(fontSize: 50, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 25),
-              SizedBox(
+            ),
+            SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: SizedBox(
                 width: 250,
                 child: Text(
                   "Our Goals is to keep you healthy and fit, while having fun doing it ",
                   style: GoogleFonts.lato(fontSize: 20),
                 ),
               ),
-              SizedBox(height: 25),
-              Text(
+            ),
+            SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: Text(
                 "Contect Info:97819785",
                 style: GoogleFonts.lato(fontSize: 15),
               ),
-              SizedBox(height: 15),
-              GestureDetector(
+            ),
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: GestureDetector(
                 onTap: _launchURL,
                 child: Text(
                   'Visit Out Website For More Information',
@@ -53,7 +64,10 @@ class About extends StatelessWidget {
                       fontSize: 20),
                 ),
               ),
-              Row(
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+              child: Row(
                 children: [
                   GestureDetector(
                     onTap: _launchEmail,
@@ -77,9 +91,9 @@ class About extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
