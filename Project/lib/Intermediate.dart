@@ -11,6 +11,7 @@ class Intermediate extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
           title: Text(
             "Intermediate",
