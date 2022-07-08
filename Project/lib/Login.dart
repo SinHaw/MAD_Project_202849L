@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: MaterialButton(
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           onPressed: () {
-            singIn(emailController.text, passwordController.text);
+            signIn(emailController.text, passwordController.text);
           },
           child: Text(
             "Login",
@@ -175,7 +175,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void singIn(String email, String password) async {
+  void signIn(String email, String password) async {
     if (_formKey.currentState.validate()) {
       await _auth
           .signInWithEmailAndPassword(email: email, password: password)
